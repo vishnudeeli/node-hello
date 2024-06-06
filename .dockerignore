@@ -1,0 +1,24 @@
+# Ignore node modules
+node_modules
+
+# Ignore log files
+*.log
+
+# Ignore environment variables
+.env
+
+# Ignore Docker-related files
+Dockerfile
+.dockerignore
+
+# Ignore git repository
+.git
+.gitignore
+
+# Ignore editor specific files
+.vscode
+.idea
+
+# Ignore OS specific files
+.DS_Store
+Thumbs.db
