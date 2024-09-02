@@ -18,19 +18,8 @@ permissions:
 
 jobs:
   alert:
-    if: ${{ !github.event.issue.pull_request }}
     runs-on: ubuntu-latest
     steps:
-      - name: Login to Azure
-        uses: azure/login@v2
-        with:
-          allow-no-subscriptions: true
-      - name: Get Azure DevOps token
-        id: get_ado_token
-        run:
-          # The resource ID for Azure DevOps is always 499b84ac-1321-427f-aa17-267ca6975798
-          # https://learn.microsoft.com/azure/devops/integrate/get-started/authentication/service-principal-managed-identity
-          echo "ado_token=$(az account get-access-token --resource 499b84ac-1321-427f-aa17-267ca6975798 --query "accessToken" --output tsv)" >> $GITHUB_ENV
       - uses: danhellem/github-actions-issue-to-work-item@master
         env:
           ado_token: "${{ secrets.ado_token }}"
