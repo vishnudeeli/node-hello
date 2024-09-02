@@ -33,7 +33,7 @@ jobs:
           echo "ado_token=$(az account get-access-token --resource 499b84ac-1321-427f-aa17-267ca6975798 --query "accessToken" --output tsv)" >> $GITHUB_ENV
       - uses: danhellem/github-actions-issue-to-work-item@master
         env:
-          ado_token: "${{ env.ado_token }}"
+          ado_token: "${{ secrets.ado_token }}"
           github_token: "${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}"
           ado_organization: "vishnuvardhandeeli"
           ado_project: "GIS"
